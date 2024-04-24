@@ -7,8 +7,8 @@ import coloredlogs
 
 def logging_init(name: str):
     logger = logging.getLogger(name)
-    if os.getenv('TEST') == 1:
-        coloredlogs.install(level='DEBUG', stream=sys.stdout)
+    if os.getenv('TEST'):
+        coloredlogs.install(level=logging.DEBUG, stream=sys.stdout)
     else:
-        coloredlogs.install(level='DEBUG', stream=sys.stdout)
+        coloredlogs.install(level=logging.INFO, stream=sys.stdout)
     return logger
